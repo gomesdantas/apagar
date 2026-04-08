@@ -1,28 +1,28 @@
 player.onChat("start", function () {
     loops.forever(function () {
 
-        // PosiÁ„o atual do jogador
+        // Posi√ß√£o atual do jogador
         let posJogador = player.position()
 
-        // PosiÁ„o 1 bloco abaixo do jogador (Y -1)
+        // Posi√ß√£o 1 bloco abaixo do jogador (Y -1)
         let posAbaixo = positions.add(
             posJogador,
             positions.create(0, -1, 0)
         )
 
-        // Verifica se o bloco abaixo È ·gua
+        // Verifica se o bloco abaixo √© √°gua
         if (blocks.testForBlock(WATER, posAbaixo)) {
 
             // Mensagem de alerta
-            player.say("¡gua encontrada abaixo!")
+            player.say("√Ågua encontrada abaixo!")
 
-            // PosiÁ„o ‡ esquerda do jogador (relativa ‡ direÁ„o)
+            // Posi√ß√£o √† esquerda do jogador (relativa √† dire√ß√£o)
             let posEsquerda = positions.left(posJogador, 1)
 
             // Coloca tocha de redstone
             blocks.place(REDSTONE_TORCH, posEsquerda)
 
-            // Pausa para n„o repetir constantemente
+            // Pausa para n√£o repetir constantemente
             loops.pause(500)
         }
 
